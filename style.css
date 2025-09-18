@@ -1,0 +1,16 @@
+/* css */
+
+body{
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.buttonType0{
+    /* Size */
+    width: 140px;          /* fixed width (optional) */
+    height: 48px;          /* fixed height (optional) */
+    /* Font Size */
+    font-size: 20px;
+}
