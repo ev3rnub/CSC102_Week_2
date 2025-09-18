@@ -10,7 +10,7 @@ function updatePoints(){
   //Increment
   const newValue = current + 1;
 
-  //Write back to both the attribute and the visible text
+  //Write back to both the attribute and the visible text in game.html
   displayedPoints.dataset.points = newValue;
   displayedPoints.innerHTML = newValue;
 }
