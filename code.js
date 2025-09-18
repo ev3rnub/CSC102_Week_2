@@ -18,7 +18,7 @@ function buyClone(){
     //Read from the data attribute (always a string)
     const currentPoints = Number(displayedPoints.dataset.points) || 0; // dataset.points → "0"
     const currentClones = Number(displayedClones.dataset.points) || 0;
-    //Decrement
+    //Decrement points to purchase a clone
     if (currentPoints >= 5){
         //points
         const newPointsValue = currentPoints - 5;
@@ -31,9 +31,5 @@ function buyClone(){
         displayedClones.innerHTML = newCloneValue;
     }else{
         displayedClones.innerHTML = "NEED 5 POINTS"
-        setTimeout(() => clonesEl.innerHTML = clones, 1500);
     }
-    
-
-
 }
