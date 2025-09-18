@@ -13,18 +13,38 @@
 </head>
 <body>
     <header>
-        <h1 id="heading">Verbose Incremental Clone Factory</h1>
-        <button class="buttonType0" onclick="updatePoints();">Create</button>
+        <h1 class="heading">Verbose Incremental Clone Factory</h1>
+        <button class="buttonType0" onclick="updatePoints();">Generate Points</button>
     </header>
 
-    <p>
+    <!-- Points – stays on its own line -->
+    <section class="points">
         <h2>Points</h2>
         <div id="points">0</div>
-    </p>
-    <p>
-        <h2>Clones</h2>
-        <button class="buttonType0" onclick="buyClone();">Buy Clone (5p)</button>
-        <div id="clones">0</div>
-    </p>
+    </section>
+
+    <!-- Row that holds the three “clone” columns -->
+    <div class="clone‑row">
+        <!-- ── Clones ── -->
+        <div class="clone‑col">
+            <h2>Clones</h2>
+            <button class="buttonType0" onclick="buyClone()">Buy Clone (5p)</button>
+            <div id="clones">0</div>
+        </div>
+
+        <!-- ── Marine Clones ── -->
+        <div class="clone‑col">
+            <h2>Marine Clones</h2>
+            <button class="buttonType0" onclick="buyMarineClone()">Buy Clone (4c)</button>
+            <div id="marineClones">0</div>
+        </div>
+
+        <!-- ── Repair Clones ── -->
+        <div class="clone‑col">
+            <h2>Repair Clones</h2>
+            <button class="buttonType0" onclick="buyRepairClone()">Buy Clone (2c)</button>
+            <div id="RepairClones">0</div>
+        </div>
+    </div>   
 </body>
 </html>

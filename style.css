@@ -1,16 +1,57 @@
-/* css */
-
-body{
+/* 
+Chad Verbus
+09172025
+*/
+body {
+    margin: 2rem;
     background-color: black;
-    color: whitesmoke;
-    text-align: center;
-    font-size: xx-large;
+    color:whitesmoke;
 }
 
-.buttonType0{
-    /* Size */
-    width: 140px;          /* fixed width (optional) */
-    height: 48px;          /* fixed height (optional) */
-    /* Font Size */
-    font-size: 20px;
+
+header{
+    align-content: center;
 }
+
+.points {
+    margin-bottom: 2rem;           /* space before the clone row */
+}
+.points h2,
+.points div {
+    text-align: center;
+    font-size: x-large;
+}
+
+.clone‑row {
+    display: flex;                 /* horizontal row */
+    gap: 2rem;                     /* space between columns */
+    justify-content: center;       /* centre the whole row */
+    font-size: x-large;
+}
+
+.clone‑col {
+    display: flex;
+    flex-direction: column;        /* stack heading‑button‑value */
+    align-items: center;           /* centre items inside the column */
+    gap: 0.5rem;                   /* space between heading, button, value */
+    font-size: x-large;
+}
+
+.clone‑col div {
+    min-width: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.buttonType0 {
+    padding: 0.5rem 1rem;
+    background: #0066ff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size:x-large;
+    align-self: center;
+}
+.buttonType0:hover { background: #6292df; }
