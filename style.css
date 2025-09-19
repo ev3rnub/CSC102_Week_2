@@ -9,7 +9,7 @@ body {
 }
 
 
-header{
+header {
     align-content: center;
 }
 
@@ -22,14 +22,14 @@ header{
     font-size: x-large;
 }
 
-.clone‑row {
+.clone-row {
     display: flex;                 /* horizontal row */
     gap: 2rem;                     /* space between columns */
     justify-content: center;       /* centre the whole row */
     font-size: x-large;
 }
 
-.clone‑col {
+.clone-col {
     display: flex;
     flex-direction: column;        /* stack heading‑button‑value */
     align-items: center;           /* centre items inside the column */
@@ -37,7 +37,7 @@ header{
     font-size: x-large;
 }
 
-.clone‑col div {
+.clone-col div {
     min-width: 2.5rem;
     text-align: center;
     font-weight: bold;
