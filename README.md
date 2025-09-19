@@ -10,3 +10,5 @@ Creation Date: September 17, 2025
 * 2. Added a javascript function to increment the displayed points on game.html.
 * 3. Added another javascript function to add to the number of clones if there is enough points. 
 * 4. Added styles.css to style the game.html page.
+## 09/18/2025:
+* 1. added document event listener to trigger startCloneTimer() and increment points based on the amount of clones. 

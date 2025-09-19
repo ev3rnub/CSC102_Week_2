@@ -1,18 +1,24 @@
+
+// adds an event listener to start the "startCloneTimer" once the document object model is loaded.
+document.addEventListener('DOMContentLoaded', () => {
+  startCloneTimer();               // ← start the 5‑second loop
+});
+
+
 // updatePoints takes the current points when "generate points" button is pressed on game.html
-
-
 function updatePoints(){
-  const displayedPoints = document.getElementById('points');
+    const displayedPoints = document.getElementById('points');
+    const currentClones = document.getElementById('clones');
+    //Read from the data attribute (always a string) and convert it to integer
+    const current = Number(displayedPoints.dataset.points) || 0; // dataset.points → "0"
+    const currentCloneCount = Number(currentClones.dataset.points) || 0;
+    //Increment
+    const newValue = current + 1;
 
-  //Read from the data attribute (always a string) and convert it to integer
-  const current = Number(displayedPoints.dataset.points) || 0; // dataset.points → "0"
-
-  //Increment
-  const newValue = current + 1;
-
-  //Write back to both the attribute and the visible text in game.html
-  displayedPoints.dataset.points = newValue; //Note: Dataset a clean, standards‑based way to attach custom data to DOM elements without polluting the DOM’s core attributes
-  displayedPoints.innerHTML = newValue;
+    //Write back to both the attribute and the visible text in game.html
+    displayedPoints.dataset.points = newValue; //Note: Dataset a clean, standards‑based way to attach custom data to DOM elements without polluting the DOM’s core attributes
+    displayedPoints.innerHTML = newValue;
+    
 }
 
 // buyClone checks to see if the current points is greater or equal to 5
@@ -66,4 +72,26 @@ function buyMarineClone(){
     }else{
         displayedMarineClones.innerHTML = "NEED 4 Clones"
     }
+}
+
+let cloneTimerId = null;   // global so we can stop it later if we want
+
+function startCloneTimer() {
+  // Guard: don’t start two timers by accident
+  if (cloneTimerId !== null) return;
+
+  // Every 5 seconds we run the tick function
+  cloneTimerId = setInterval(() => {
+    const pointsEl = document.getElementById('points');
+    const clonesEl = document.getElementById('clones');
+  // ---- replace getNumber ----
+    const currentPoints = Number(pointsEl.dataset.points) || 0;
+    const currentClones = Number(clonesEl.dataset.points) || 0;
+
+    // Add ONE point **per** clone you own
+    const newPoints = currentPoints + currentClones;
+
+    pointsEl.dataset.points = newPoints;
+    pointsEl.innerHTML = newPoints 
+  }, 5000);
 }

@@ -10,7 +10,14 @@ body {
 
 
 header {
-    align-content: center;
+    display: flex;            /* make it a flex container */
+    flex-direction: column;   /* stack <h1> and <button> vertically */
+    align-items: center;      /* centre them horizontally */
+    gap: .5rem;               /* space between them */
+}
+
+.hending {
+    align-self: center;
 }
 
 .points {
