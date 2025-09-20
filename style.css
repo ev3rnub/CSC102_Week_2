@@ -1,22 +1,33 @@
 /* 
 Chad Verbus
-09172025
+Created: 09172025
+wip
 */
+header {
+    display: flex;            /* make it a flex container */
+    flex-direction: column;   /* stack <h1> and <button> vertically */
+    align-items: center;      /* centre them horizontally */
+    font-size: xx-large;
+    gap: .5rem;               /* space between them */
+}
+
 body {
     margin: 2rem;
     background-color: black;
     color:whitesmoke;
 }
 
-
-header {
-    display: flex;            /* make it a flex container */
-    flex-direction: column;   /* stack <h1> and <button> vertically */
-    align-items: center;      /* centre them horizontally */
-    gap: .5rem;               /* space between them */
+p {
+    font-size: small;
 }
 
-.hending {
+.pTitle {
+    font-size: medium;
+    display: flex;
+    gap: -.5rem;
+}
+
+.heading {
     align-self: center;
 }
 

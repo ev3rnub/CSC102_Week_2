@@ -11,4 +11,5 @@ Creation Date: September 17, 2025
 * 3. Added another javascript function to add to the number of clones if there is enough points. 
 * 4. Added styles.css to style the game.html page.
 ## 09/18/2025:
-* 1. added document event listener to trigger startCloneTimer() and increment points based on the amount of clones. 
+* 1. added document event listener to trigger startCloneTimer() and increment points based on the amount of clones. Creating a semi working prototype idle clicker game written in html5, css and javascript. 
+* 2. UpNext, Git Branch to - Proto, indicating a small milestone, woot!
