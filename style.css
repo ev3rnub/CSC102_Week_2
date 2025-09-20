@@ -8,6 +8,7 @@ header {
     flex-direction: column;   /* stack <h1> and <button> vertically */
     align-items: center;      /* centre them horizontally */
     font-size: xx-large;
+    background-color: gray;
     gap: .5rem;               /* space between them */
 }
 
@@ -33,10 +34,10 @@ p {
 
 .points {
     margin-bottom: 2rem;           /* space before the clone row */
+    font-size: large;
 }
-.points h2,
-.points div {
-    text-align: center;
+
+#buildPoints {
     font-size: x-large;
 }
 
@@ -64,7 +65,7 @@ p {
 
 .buttonType0 {
     padding: 0.5rem 1rem;
-    background: #0066ff;
+    background: #000f26;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -72,4 +73,18 @@ p {
     font-size:x-large;
     align-self: center;
 }
-.buttonType0:hover { background: #6292df; }
+ /* lower buttons, ensure they are visible  */
+.buttonType1 {
+    padding: 0.5rem 1rem;
+    background: #003481;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size:x-large;
+    align-self: center;
+}
+
+.buttonType0:hover { 
+    background: gray; 
+}
