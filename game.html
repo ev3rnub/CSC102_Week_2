@@ -3,14 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    
     <meta charset="UTF-8"> <!-- meta tag provides metadata about an HTML document. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- defines viewport content; containing width and init scale. -->
-    <link rel="stylesheet" href="style.css"> <!-- defines hypertext reference; Points to our Cascading Style Sheets location; same dir as game.html -->
-    <script src="code.js" defer> </script><!-- defines the source script or file; 
+    <link rel="stylesheet" href="style.css"> <!-- defines hypertext reference; Points to our Cascading Style Sheets location; same dir as game.html; this is for the styhle of the main view-->
+    <link rel="stylesheet" href="loading.css"> <!-- defines style for the loading view-->
+    <script src="code.js" defer> </script><!-- Main logic goes here 
     The boundry of where javascript is allowed inline and or external; browser can continue asynchronously without waiting for the script to download, -->
-    
+    <script src="loading.js" defer></script> <!-- loading logic if required-->
     <title class="title">Verbose Incremental Clone Factory</title> <!-- Page title; with class title |  0.o-->
 </head>
 <!-- begin Body -->
@@ -22,69 +21,75 @@
         <button class="buttonType0" onclick="updatePoints();">Generate Build Points</button> <!-- on click event; Calls updatePoits. -->
         <p id="totalActions">0</p><!-- Paragraph ID of totalActions; How many clicks! -->
     </header>
-<!-- Div w/class; Defines a row -->
-    <div class="clone-row">
-        <div class="clone-col"> <!-- Div w/class; Defines a colomn -->
-            <!-- Points – stays on its own line -->
-            <section class="points">
-                <h2>Build Points(bp)</h2>  <!-- Title with indicator; bp - Meaning; Build Points.-->
-                <p>Spend (bp) to build Clones</p> <!-- Paragraph with indicator bp ; Meaning; Build Build Points.-->
-                <div id="buildPoints">0</div> <!-- Divider ID of buildPoints -->
-            </section>
-        </div>
-        <div class="clone-col">
-            <!-- Points – stays on its own line -->
-            <section class="points">
-                <h2>Defense Points(dp)</h2>
-                <p>Reduces incoming damage based on Marine Clones</p>
-                <div id="defensePoints">0</div>
-            </section>
-        </div>
-        <div class="clone-col">
-            <!-- Points – stays on its own line -->
-            <section class="points">
-                <h2>Factory Damage(fd)</h2>
-                <p>Total amount of factory damage, at 2000 dmg the core is exposed to attack.</p>
-                <div id="factoryDamagePoints">0</div>
-            </section>
-        </div>      
+    <!-- loading overlay div -->
+    <div id="loadingOverlay">
+        <div class="loadAnimation"></div>
+        <h2 class="aHeading">Verbose Incremental Clone Factory</h2>
+        <div class="line"></div>
     </div>
-
-
-    <!-- Row that holds the three “clone” columns -->
-    <div class="clone-row">
-        <!-- ── Clones ── -->
-        <div class="clone-col">
-            <h2>Build Clones (bc)</h2> <!-- Title with indicator; bc - Meaning; Builder Clone.-->
-            <p>Build clones: They produce build points * # of total clone count, per 5 seconds; </p> <!-- Paragraph with  Clone.-->
-            <button class="buttonType1" onclick="buyBuildClone()">Buy Build Clone (5bp)</button>
-            <div id="buildClones">0</div>
+    <!-- main view-->
+    <div class="mainView" style="visibility: hidden;">
+        <div class="clone-row">
+            <div class="clone-col"> <!-- Div w/class; Defines a colomn -->
+                <!-- Points – stays on its own line -->
+                <section class="points">
+                    <h2>Build Points(bp)</h2>  <!-- Title with indicator; bp - Meaning; Build Points.-->
+                    <p>Spend (bp) to build Clones</p> <!-- Paragraph with indicator bp ; Meaning; Build Build Points.-->
+                    <div id="buildPoints">0</div> <!-- Divider ID of buildPoints -->
+                </section>
+            </div>
+            <div class="clone-col">
+                <!-- Points – stays on its own line -->
+                <section class="points">
+                    <h2>Defense Points(dp)</h2>
+                    <p>Reduces incoming damage based on Marine Clones</p>
+                    <div id="defensePoints">0</div>
+                </section>
+            </div>
+            <div class="clone-col">
+                <!-- Points – stays on its own line -->
+                <section class="points">
+                    <h2>Factory Damage(fd)</h2>
+                    <p>Total amount of factory damage, at 2000 dmg the core is exposed to attack.</p>
+                    <div id="factoryDamagePoints">0</div>
+                </section>
+            </div>      
         </div>
+        <!-- Row that holds the three “clone” columns -->
+        <div class="clone-row">
+            <!-- ── Clones ── -->
+            <div class="clone-col">
+                <h2>Build Clones (bc)</h2> <!-- Title with indicator; bc - Meaning; Builder Clone.-->
+                <p>Build clones: They produce build points * # of total clone count, per 5 seconds; </p> <!-- Paragraph with  Clone.-->
+                <button class="buttonType1" onclick="buyBuildClone()">Buy Build Clone (5bp)</button>
+                <div id="buildClones">0</div>
+            </div>
 
-        <!-- ── Marine Clones ── -->
-        <div class="clone-col">
-            <h2>Marine Clones (mc)</h2>   <!-- Title with indicator; mc - Meaning; Marine Clone.-->
-            <p>Marine Clones increase defense points (df)</p>  <!-- Paragraph with indicator; df - Meaning; Defense Points. -->
-            <button class="buttonType1" onclick="buyMarineClone()">Buy Marine Clone (4bc)</button> <!-- Title with indicator; 4bc - Meaning; 
-            Four builder clone Points; With onClick event; Which calls buyMarineClone. -->
-            <div id="marineClones">0</div> <!-- Divider ID of  -->
+            <!-- ── Marine Clones ── -->
+            <div class="clone-col">
+                <h2>Marine Clones (mc)</h2>   <!-- Title with indicator; mc - Meaning; Marine Clone.-->
+                <p>Marine Clones increase defense points (df)</p>  <!-- Paragraph with indicator; df - Meaning; Defense Points. -->
+                <button class="buttonType1" onclick="buyMarineClone()">Buy Marine Clone (4bc)</button> <!-- Title with indicator; 4bc - Meaning; 
+                Four builder clone Points; With onClick event; Which calls buyMarineClone. -->
+                <div id="marineClones">0</div> <!-- Divider ID of  -->
+            </div>
+
+            <!-- ── Repair Clones ── -->
+            <div class="clone-col">
+                <h2>Repair Clones (rc)</h2> 
+                <p>Repair Clones repair your factory ever 25 seconds, consumes 1 repair clone.</p>
+                <button class="buttonType1" onclick="buyRepairClone()">Buy Repair Clone (2bc + 1mc)</button>
+                <div id="repairClones">0</div>
+            </div>
         </div>
-
-        <!-- ── Repair Clones ── -->
-        <div class="clone-col">
-            <h2>Repair Clones (rc)</h2> 
-            <p>Repair Clones repair your factory ever 25 seconds, consumes 1 repair clone.</p>
-            <button class="buttonType1" onclick="buyRepairClone()">Buy Repair Clone (2bc + 1mc)</button>
-            <div id="repairClones">0</div>
+        <!-- Row that holds the Messager Center in a single Wide column -->
+        <div class="clone-row">
+            <div class="clone-col">
+                <h2>Message Center</h2>
+                <p>Game and status messages appear here</p>
+                <h3 id="currentGameMessages">" |- ^ -| "</h3>
+            </div>
         </div>
     </div>
-    <!-- Row that holds the Messager Center in a single Wide column -->
-    <div class="clone-row">
-        <div class="clone-col">
-            <h2>Message Center</h2>
-            <p>Game and status messages appear here</p>
-            <h3 id="currentGameMessages">" |- ^ -| "</h3>
-        </div>
-    </div>    
 </body>
 </html>

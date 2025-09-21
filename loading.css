@@ -1,0 +1,68 @@
+/* Chad Verbus */
+/* CSC102 */
+
+/* body{
+    background-color: rgb(22, 22, 22);
+} */
+
+.loadAnimation{
+    height: 50px;
+    width: 50px;
+    border: 6px solid aqua;
+    border-radius: 4px;
+    box-shadow: 0 0 8px aqua, 0 0 8px aqua inset;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 10;
+    animation: 2s Loading ease-in-out infinite;
+}
+
+@keyframes Loading{
+    0%{
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+    33%{
+        transform: rotateX(180deg) rotateY(0) rotateZ(0);
+    }
+    67%{
+        transform: rotateX(180deg) rotateY(180deg) rotateZ(0);
+    }
+    100%{
+        transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+    }
+}
+
+.aHeading{
+    color:aqua;
+    z-index: 9;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.line {
+    border-bottom: 3px solid aqua; /* Creates a 1px solid black line at the bottom */
+    width: 5px; /* Ensures the line spans the full width of its parent */
+    margin: 20px 0; /* Adds some space above and below the line */
+    z-index: 9;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    translate: -50% -50%;
+    animation: 2s Line ease-in-out infinite;
+}
+
+@keyframes Line{
+    0%{
+        transform:translateX(-175px);
+    }
+    50%{
+        transform: translateX(175px);
+    }
+    100%{
+        transform: translateX(-175px);
+    }
+}

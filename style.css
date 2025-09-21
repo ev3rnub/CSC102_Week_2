@@ -85,6 +85,15 @@ p {
     align-self: center;
 }
 
-.buttonType0:hover { 
-    background: gray; 
+#loadingOverlay{
+    position: fixed;          /* stay fixed while page scrolls */
+    inset: 0;                 /* shorthand for top/right/bottom/left = 0 */
+    background: rgb(22,22,22);/* same colour you use for the body */
+    display: flex;            /* centre children horizontally & vertically */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;  /* stack spinner, heading, line */
+    z-index: 9999;            /* above everything else */
+    opacity: 1;               /* start fully opaque */
+    transition: opacity .4s ease-out; /* fade out when we set opacity to 0 */
 }
