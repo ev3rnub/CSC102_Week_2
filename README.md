@@ -17,3 +17,4 @@
 ## 09/21/2025:
 * 1. Added loading animation in css, added a div section for the loading anim, and javascript.
 * 2. Branched from main, to Proto. 
+* 3. Changed font color and some file names.
