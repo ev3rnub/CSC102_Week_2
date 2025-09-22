@@ -1,7 +1,8 @@
-Course: CSC102
-Week: 2
-Author: Chad Verbus
-Creation Date: September 17, 2025
+| **Course**        | CSC102 |
+| **Week**          | 2 |
+| **Author**        | Chad Verbus |
+| **Creation Date** | September 17, 2025 |
+| **Note**          | ⚠️ Working Document – This README is a living document… |
 
 ⚠️ Working Document – This README is a living document that will be updated throughout the semester as new topics, assignments, and resources become available.
  
