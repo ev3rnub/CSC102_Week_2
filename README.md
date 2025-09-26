@@ -18,3 +18,5 @@
 * 1. Added loading animation in css, added a div section for the loading anim, and javascript.
 * 2. Branched from main, to Proto. 
 * 3. Changed font color and some file names.
+## 09/25/2025:
+* 1. Fixed a typo in the game instructions text.
