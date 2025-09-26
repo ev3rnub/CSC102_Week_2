@@ -20,3 +20,5 @@
 * 3. Changed font color and some file names.
 ## 09/25/2025:
 * 1. Fixed a typo in the game instructions text.
+## 09/26/2025:
+* 1. Fixed another typo in the game instructions text.
