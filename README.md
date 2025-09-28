@@ -27,3 +27,5 @@
 * 2. Added a "Game Over" overlay to further inform the player they destoryed their factory. 
 * 3. Fixed another typo on game.html.
 * 4. Re-arranged some functions before refactoring pass.
+## 09/28/2025:
+* 1. Reverted Factory damage from 1000 back to 1. As I got the end game screen working. 

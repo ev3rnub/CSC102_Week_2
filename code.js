@@ -74,7 +74,7 @@ function updateTotalActions(){
 // updatePoints takes the current points when "generate points" button is pressed on game.html;
 function updatePoints(){
     totalManualActions += 1;
-    aCurrentFactoryDamage += 1000;
+    aCurrentFactoryDamage += 1;
     const displayedFactoryDamagePoints = document.getElementById("factoryDamagePoints");
     const displayedBuildPoints = document.getElementById('buildPoints');
     // Read from the data attribute (always a string) and convert it to integer
@@ -325,7 +325,7 @@ function showEndGameOverlay() {
     /* -- Grab the overlay – we accept both the correct ID and the old typo.-- */
     const overlay = document.querySelector('#endGameOverlay, #endGameOVerlay');
     if (!overlay) {
-        console.error('❌ End-game overlay element not found');
+        console.error('End-game overlay element not found');
         return;
     }
 
