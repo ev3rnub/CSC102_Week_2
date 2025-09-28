@@ -1,0 +1,79 @@
+:root {
+    /* Colors already used in loading.css */
+    --bg-dark: rgb(22, 22, 22);
+    --accent-aqua: aqua;
+}
+
+/* The wrapper that covers the whole screen */
+#endGameOverlay{
+    position:fixed;
+    inset:0;                               /* top/right/bottom/left = 0 */
+    background:var(--bg-dark);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;                          /* above everything */
+    visibility:hidden;                    /* hidden until we trigger it */
+    opacity:0;                             /* start fully transparent */
+}
+
+/* The coloured “flash” that expands behind the text */
+#endGameOverlay .loadEndGame{
+    position:absolute;
+    inset:0;
+    background:var(--accent-aqua);
+    opacity:0;
+    animation:none;                       /* will be added dynamically */
+}
+
+/* Game‑over text – same style as your loading heading */
+#endGameOverlay .gameover{
+    color:var(--accent-aqua);
+    font-size:3rem;
+    text-align:center;
+    z-index:1;                             /* above the flash */
+    animation:none;                       /* will be added dynamically */
+}
+
+/* -- Keyframes – all the fun bits -- */
+/* Fade‑in the whole overlay */
+@keyframes egFadeIn {
+    0%   {opacity:0;}
+    100% {opacity:1;}
+}
+
+/* Background flash – quickly expands then fades */
+@keyframes egFlash {
+    0%   {transform:scale(0); opacity:0.7;}
+    30%  {transform:scale(1.4); opacity:0.5;}
+    60%  {transform:scale(0.9); opacity:0.3;}
+    100% {transform:scale(1);   opacity:0;}
+}
+
+/* Text pulse – grow/shrink a bit */
+@keyframes egPulse {
+    0%,100% {transform:scale(1);}
+    50%     {transform:scale(1.1);}
+}
+
+/* Text shake – subtle left/right jitter */
+@keyframes egShake {
+    0%   {transform:translateX(0);}
+    10%  {transform:translateX(-4px);}
+    20%  {transform:translateX(4px);}
+    30%  {transform:translateX(-4px);}
+    40%  {transform:translateX(4px);}
+    50%  {transform:translateX(-2px);}
+    60%  {transform:translateX(2px);}
+    70%  {transform:translateX(-2px);}
+    80%  {transform:translateX(2px);}
+    90%  {transform:translateX(0);}
+    100% {transform:translateX(0);}
+}
+
+/* Helper classes – we add them with JS when we want the effect */
+.eg-show          {visibility:visible; animation:egFadeIn .4s forwards;}
+.eg-flash         {animation:egFlash 1s forwards;}
+.eg-pulse         {animation:egPulse .8s ease-in-out infinite;}
+.eg-shake         {animation:egShake .6s ease-in-out;}

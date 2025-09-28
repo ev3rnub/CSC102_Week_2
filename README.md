@@ -22,3 +22,8 @@
 * 1. Fixed a typo in the game instructions text.
 ## 09/26/2025:
 * 1. Fixed another typo in the game instructions text.
+## 09/27/2025:
+* 1. Fixed a logic error, where the factory damage on game.html wasn't being properly reset. 
+* 2. Added a "Game Over" overlay to further inform the player they destoryed their factory. 
+* 3. Fixed another typo on game.html.
+* 4. Re-arranged some functions before refactoring pass.

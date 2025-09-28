@@ -1,16 +1,17 @@
 <!-- Chad Verbus -->
+ <!-- CSC102 -->
 <!-- 09/17/2025 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"> <!-- meta tag provides metadata about an HTML document. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- defines viewport content; containing width and init scale. -->
-    <link rel="stylesheet" href="main.css"> <!-- defines hypertext reference; Points to our Cascading Style Sheets location; same dir as game.html; this is for the styhle of the main view-->
-    <link rel="stylesheet" href="loading.css"> <!-- defines style for the loading view-->
-    <script src="code.js" defer> </script><!-- Main logic goes here 
-    The boundry of where javascript is allowed inline and or external; browser can continue asynchronously without waiting for the script to download, -->
-    <script src="loading.js" defer></script> <!-- loading logic if required-->
-    <title class="title">Verbose Incremental Clone Factory</title> <!-- Page title; with class title |  0.o-->
+    <link rel="stylesheet" href="main.css"> <!-- MAIN game view -->
+    <link rel="stylesheet" href="loading.css"> <!-- LOAD game animation -->
+    <link rel="stylesheet" href="endgame.css"> <!-- END game animation -->
+    <script src="code.js" defer> </script> <!-- Main logic javascript: -->
+    <script src="loading.js" defer></script> <!-- LOAD animation logic -->
+    <title class="title">Verbose Incremental Clone Factory</title> <!-- Page title; with class title. |  0.o -->
 </head>
 <!-- begin Body -->
 <body>
@@ -18,17 +19,22 @@
     <header>
         <h1 class="heading">Verbose Incremental Clone Factory</h1> <!-- Main Title: with its own class. o.0 -->
         <p class="pTitle">A Idle clicker game where you try to get as high as possible build point score; IF you damage your Factory over 2000 damage else you lose, each manual action damages the Factory.</p>
-        <button class="buttonType0" onclick="updatePoints();">Generate Build Points</button> <!-- on click event; Calls updatePoits. -->
-        <p id="totalActions">0</p><!-- Paragraph ID of totalActions; How many clicks! -->
+        <button class="buttonType0" onclick="updatePoints();">Generate Build Points</button> <!-- On click event; Calls updatePoits. -->
+        <p id="totalActions">0</p><!-- ID of totalActions; How many clicks! for dev purposes -->
     </header>
-    <!-- loading overlay div -->
+    <!-- loading overlay div , displays the loading animation for purdy graphics, also contains some text and a line to animate-->
     <div id="loadingOverlay">
         <div class="loadAnimation"></div>
         <h2 class="aHeading">Verbose Incremental Clone Factory</h2>
         <div class="line"></div>
     </div>
-    <!-- main view-->
-    <div class="mainView" style="visibility: hidden;">
+    <div id="endGameOverlay">
+        <div class="loadEndGame"></div>
+        <h2 class="gameover">Factory Destroyed!! Game Over</h2>
+        <div class="mainAccentAnimation"></div>
+    </div>
+    <!-- main game view-->
+    <div class="mainView" id="aMainView" style="visibility: hidden;">
         <div class="clone-row">
             <div class="clone-col"> <!-- Div w/class; Defines a colomn -->
                 <!-- Points – stays on its own line -->
@@ -85,8 +91,8 @@
         <!-- Row that holds the Messager Center in a single Wide column -->
         <div class="clone-row">
             <div class="clone-col">
-                <h2>Message Center</h2>
-                <p>Game and status messages appear here</p>
+                <h2>Message Center</h2> <!-- Game message center WIP -->
+                <p><!--Game and status messages appear here--></p>
                 <h3 id="currentGameMessages">" |- ^ -| "</h3>
             </div>
         </div>
